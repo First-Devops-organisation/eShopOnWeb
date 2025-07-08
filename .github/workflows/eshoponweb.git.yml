@@ -3,6 +3,8 @@ on:
   push:
     branches:
     - none
+env:
+  BuildConfiguration: Release    
 jobs:
   build:
     runs-on: windows-latest
@@ -17,8 +19,19 @@ jobs:
       run: dotnet build **/*.csproj --configuration ${{ env.BuildConfiguration }}
     - name: dotnet publish
       run: dotnet publish --configuration ${{ env.BuildConfiguration }} --output ${{ runner.temp }}
+    - name: List Published Files
+      run: dir ${{ runner.temp }}\artifact
+      
     - name: 'Publish Artifact: drop'
       uses: actions/upload-artifact@v4.1.0
       with:
         name: drop--${{ github.run_id }}-${{ github.run_number }}
-        path: ${{ github.workspace }}/artifact
+        path: ${{ runner.temp }}/artifact
+    # - name: List Published Files
+    #     run: dir ${{ runner.temp }}\artifact
+  
+    #   - name: 'Publish Artifact: drop'
+    #     uses: actions/upload-artifact@v4.1.0
+    #     with:
+    #       name: migrate/eShopOnWeb.git
+    #       path: ${{ runner.temp }}/artifact
