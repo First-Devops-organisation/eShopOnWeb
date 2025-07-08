@@ -1,8 +1,9 @@
 name: migrate/eShopOnWeb.git
+
 on:
   push:
     branches:
-    - none
+    - main
 env:
   BuildConfiguration: Release    
 jobs:
