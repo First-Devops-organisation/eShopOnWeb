@@ -11,7 +11,7 @@ jobs:
       uses: actions/checkout@v2
     # The dotnet CLI does not accept glob patterns. Consider using a solution file to act on multiple projects at once.
     - name: dotnet restore
-      run: dotnet restore **/*.sln
+      run: dotnet restore
     # The dotnet CLI does not accept glob patterns. Consider using a solution file to act on multiple projects at once.
     - name: dotnet build
       run: dotnet build **/*.csproj --configuration ${{ env.BuildConfiguration }}
