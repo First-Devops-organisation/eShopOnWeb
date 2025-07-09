@@ -2,7 +2,7 @@ name: YASH-Traffix-POC/eShopOnWeb_Sonar
 on:
   push:
     branches:
-    - none
+    - main
 jobs:
   build:
     runs-on: windows-latest
