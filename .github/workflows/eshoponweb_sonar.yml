@@ -18,7 +18,7 @@ jobs:
     - name: dotnet build
       run: dotnet build src/ApplicationCore/ApplicationCore.csproj --configuration ${{ env.BuildConfiguration }}
     - name: dotnet publish
-      run: dotnet publish src/ApplicationCore/ApplicationCore.csproj --configuration ${{ env.BuildConfiguration }} --output ${{ runner.temp }}
+      run: dotnet publish src/ApplicationCore/ApplicationCore.csproj --configuration ${{ env.BuildConfiguration }} --output ${{ runner.temp }}/artifact
     - name: 'Publish Artifact: drop'
       uses: actions/upload-artifact@v4.1.0
       with:
