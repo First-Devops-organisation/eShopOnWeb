@@ -2,7 +2,7 @@ name: YASH-Traffix-POC/Migrate_pipeline
 on:
   push:
     branches:
-    - none
+    - main
 jobs:
   build:
     runs-on: windows-latest
